@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TURK TİLİ CEFR YAZMA</title>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--tg-theme-bg-color, #f5f5ef);
+            color: var(--tg-theme-text-color, #20352b);
+            padding: 22px 17px 35px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            color: #236044;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: #829087;
+            margin-top: 5px;
+        }
+
+        .profile {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #e4eee6;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+        }
+
+        .welcome {
+            background: #214e39;
+            color: white;
+            border-radius: 22px;
+            padding: 23px;
+            margin-bottom: 22px;
+        }
+
+        .welcome small {
+            color: #c9dfd0;
+            font-size: 12px;
+        }
+
+        .welcome h1 {
+            font-size: 23px;
+            margin: 12px 0 8px;
+        }
+
+        .welcome p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #dce9df;
+        }
+
+        .section-title {
+            font-size: 17px;
+            font-weight: 750;
+            margin: 24px 0 13px;
+        }
+
+        .menu {
+            display: grid;
+            gap: 12px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--tg-theme-secondary-bg-color, white);
+            padding: 17px;
+            border-radius: 17px;
+            border: 1px solid #e8ece7;
+            cursor: pointer;
+        }
+
+        .item-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            background: #eaf1e9;
+            font-size: 21px;
+        }
+
+        .item h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .item p {
+            font-size: 11px;
+            color: #87928b;
+        }
+
+        .arrow {
+            margin-left: auto;
+            color: #8c9a90;
+            font-size: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 11px;
+            color: #929b94;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .back {
+            border: 0;
+            background: transparent;
+            color: #28704d;
+            font-size: 14px;
+            margin-bottom: 22px;
+            cursor: pointer;
+        }
+
+        .placeholder {
+            background: var(--tg-theme-secondary-bg-color, white);
+            border-radius: 18px;
+            padding: 22px;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main id="home" class="page active">
+
+        <header class="header">
+            <div>
+                <div class="logo">TURK TİLİ CEFR</div>
+                <div class="subtitle">YAZMA PLATFORMASI</div>
+            </div>
+            <div class="profile">✍️</div>
+        </header>
+
+        <section class="welcome">
+            <small>YAZMA BECERİLERİNİZİ GELİŞTİRİN</small>
+            <h1 id="welcomeName">Xush kelibsiz!</h1>
+            <p>Turk tilida yozish mahoratingizni sinang, bilimlaringizni mustahkamlang va CEFR darajangizni aniqlang.</p>
+        </section>
+
+        <div class="section-title">Asosiy bo‘limlar</div>
+
+        <div class="menu">
+
+            <div class="item" onclick="openPage('sample')">
+                <div class="item-icon">📚</div>
+                <div>
+                    <h3>Namunaviy Yazma</h3>
+                    <p>3 ta topshiriq orqali darajangizni aniqlang</p>
+                </div>
+                <div class="arrow">›</div>
+            </div>
+
+            <div class="item" onclick="openPage('independent')">
+                <div class="item-icon">✍️</div>
+                <div>
+                    <h3>Mustaqil Yazma</h3>
+                    <p>Yozma ishingizni AI orqali tekshirtiring</p>
+                </div>
+                <div class="arrow">›</div>
+            </div>
+
+            <div class="item" onclick="openPage('results')">
+                <div class="item-icon">📊</div>
+                <div>
+                    <h3>Mening natijalarim</h3>
+                    <p>Ballaringiz va CEFR darajangiz</p>
+                </div>
+                <div class="arrow">›</div>
+            </div>
+
+            <div class="item" onclick="openPage('history')">
+                <div class="item-icon">🕒</div>
+                <div>
+                    <h3>Tekshiruvlar tarixi</h3>
+                    <p>Oldingi yozma ishlaringiz</p>
+                </div>
+                <div class="arrow">›</div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            TURK TİLİ CEFR YAZMA · 2026
+        </div>
+    </main>
+
+    <section id="sample" class="page">
+        <button class="back" onclick="openPage('home')">← Bosh sahifa</button>
+        <h2 class="section-title">Namunaviy Yazma</h2>
+        <div class="placeholder">
+            Bu bo‘limda 3 ta namunaviy yozma topshirig‘i bo‘ladi.
+            Har bir topshiriq alohida baholanadi va yakunda umumiy CEFR natijasi chiqariladi.
+            <br><br>
+            <b>Hozircha:</b> bo‘lim ishlab chiqilmoqda.
+        </div>
+    </section>
+
+    <section id="independent" class="page">
+        <button class="back" onclick="openPage('home')">← Bosh sahifa</button>
+        <h2 class="section-title">Mustaqil Yazma</h2>
+        <div class="placeholder">
+            Bu bo‘limda foydalanuvchi topshiriq turini tanlaydi va yozgan matnini AI tekshiruviga yuboradi.
+            <br><br>
+            <b>Hozircha:</b> bo‘lim ishlab chiqilmoqda.
+        </div>
+    </section>
+
+    <section id="results" class="page">
+        <button class="back" onclick="openPage('home')">← Bosh sahifa</button>
+        <h2 class="section-title">Mening natijalarim</h2>
+        <div class="placeholder">
+            Bu yerda umumiy ball, CEFR darajasi va yozma ishlar tahlili ko‘rsatiladi.
+            <br><br>
+            <b>Hozircha:</b> Supabase bilan bog‘lanmoqda.
+        </div>
+    </section>
+
+    <section id="history" class="page">
+        <button class="back" onclick="openPage('home')">← Bosh sahifa</button>
+        <h2 class="section-title">Tekshiruvlar tarixi</h2>
+        <div class="placeholder">
+            Bu yerda foydalanuvchining oldingi tekshiruvlari saqlanadi.
+            <br><br>
+            <b>Hozircha:</b> Supabase bilan bog‘lanmoqda.
+        </div>
+    </section>
+
+    <script>
+        const tg = window.Telegram?.WebApp;
+
+        if (tg) {
+            tg.ready();
+            tg.expand();
+
+            const user = tg.initDataUnsafe?.user;
+
+            if (user?.first_name) {
+                document.getElementById("welcomeName").textContent =
+                    "Xush kelibsiz, " + user.first_name + "!";
+            }
+        }
+
+        function openPage(pageId) {
+            document.querySelectorAll(".page").forEach(page => {
+                page.classList.remove("active");
+            });
+
+            document.getElementById(pageId).classList.add("active");
+
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
